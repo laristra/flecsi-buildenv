@@ -1,0 +1,8 @@
+FROM fedora:latest
+RUN dnf install -y -q make cmake git gcc-c++ gcc-gfortran flex patch doxygen pandoc python2 openmpi-devel exodusii-devel cereal-devel lapack-devel scotch-devel
+
+RUN groupadd -r flecsi 
+RUN useradd -r -m -g flecsi flecsi
+USER flecsi
+WORKDIR /home/flecsi
+RUN module load mpi
