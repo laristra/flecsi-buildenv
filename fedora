@@ -1,5 +1,5 @@
 FROM fedora:latest
-RUN dnf install -y make cmake git gcc-c++ gcc-gfortran flex patch doxygen pandoc python2 openmpi-devel exodusii-devel cereal-devel lapack-devel scotch-deve environment-modules gasnet-devel
+RUN dnf install -y make cmake git gcc-c++ gcc-gfortran flex patch doxygen pandoc python2 openmpi-devel exodusii-devel cereal-devel lapack-devel scotch-devel environment-modules gasnet-devel
 
 RUN groupadd -r flecsi 
 RUN useradd -r -m -g flecsi flecsi
