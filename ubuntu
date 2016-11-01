@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+
+RUN apt-get -q update -y
+RUN apt-get -qq install -y make cmake cmake-data git g++ gfortran flex doxygen pandoc python2.7 libopenmpi-dev libcereal-dev liblapacke-dev libexodusii-dev libscotch-dev
+
+RUN groupadd -r flecsi && useradd -r -m -g flecsi flecsi
+USER flecsi
+WORKDIR /home/flecsi
