@@ -1,8 +1,9 @@
 FROM fedora:latest
-RUN dnf install -y make cmake git gcc-c++ gcc-gfortran flex patch doxygen pandoc python2 openmpi-devel exodusii-devel cereal-devel lapack-devel scotch-devel environment-modules gasnet-devel
+RUN dnf install -y make cmake git gcc-c++ gcc-gfortran flex patch doxygen pandoc python2 openmpi-devel exodusii-devel cereal-devel lapack-devel scotch-devel environment-modules gasnet-devel python-pip
 
 RUN groupadd -r flecsi 
 RUN useradd -r -m -g flecsi flecsi
 USER flecsi
 ENV PATH=$PATH:/usr/lib64/openmpi/bin/
 WORKDIR /home/flecsi
+RUN pip install --user codecov
