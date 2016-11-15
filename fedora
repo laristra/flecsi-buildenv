@@ -1,6 +1,7 @@
 FROM fedora:latest
 #netcdf-devel can be dropped in the next version of exodusii-devel
 RUN dnf install -y make cmake git gcc-c++ gcc-gfortran flex patch doxygen pandoc python2 openmpi-devel exodusii-devel netcdf-devel cereal-devel lapack-devel scotch-devel environment-modules gasnet-devel python-pip doxygen clang ccache vim-enhanced
+RUN ln -sf libexoIIv2for-5.14.0.so /usr/lib64/libexoIIv2c.so
 
 RUN groupadd -r flecsi 
 RUN useradd -r -m -g flecsi flecsi
