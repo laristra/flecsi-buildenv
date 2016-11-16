@@ -8,5 +8,6 @@ RUN apt-get -qq install -y make cmake cmake-data git g++ gfortran flex doxygen p
 
 RUN groupadd -r flecsi && useradd -r -m -g flecsi flecsi
 USER flecsi
+ENV PATH=/usr/lib/ccache:${PATH}${PATH:+:}
 WORKDIR /home/flecsi
 RUN pip install --user codecov
