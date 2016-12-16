@@ -4,8 +4,6 @@ This is FleCSI's build environment for docker.
 
 For more info see about [FleCSI](https://github.com/losalamos/flecsi).
 
-Further information on VOTCA can be found at http://www.votca.org
-
 # Release
 
 This software has been approved for open source release and has
