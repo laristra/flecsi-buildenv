@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 RUN apt-get -q update -y
-RUN apt-get -qq install -y make cmake cmake-data git g++ gfortran flex doxygen graphviz pandoc python2.7 libmpich-dev libcereal-dev liblapacke-dev libexodusii-dev libscotch-dev libmetis-dev python-pip texlive-font-utils clang llvm ccache texlive-latex-base texlive-fonts-recommended texlive-latex-recommended
+RUN apt-get -qq install -y make cmake cmake-data git g++ gfortran flex doxygen graphviz pandoc python2.7 libmpich-dev libcereal-dev liblapacke-dev libexodusii-dev libscotch-dev libmetis-dev python-pip texlive-font-utils clang llvm ccache texlive-latex-base texlive-fonts-recommended texlive-latex-recommended gdb
 
 RUN groupadd -r flecsi
 RUN useradd -r -m -g flecsi flecsi
