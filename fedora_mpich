@@ -12,4 +12,4 @@ ENV MPI_INCLUDE=/usr/include/mpich-x86_64
 ENV MPI_LIB=/usr/lib64/mpich/lib
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
 WORKDIR /home/flecsi
-RUN pip install --user codecov
+RUN pip install --user codecov coverxygen

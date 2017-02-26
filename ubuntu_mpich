@@ -9,4 +9,4 @@ RUN useradd -r -m -g flecsi flecsi
 USER flecsi
 ENV PATH=/usr/lib/ccache:${PATH}${PATH:+:}
 WORKDIR /home/flecsi
-RUN pip install --user codecov
+RUN pip install --user codecov coverxygen
