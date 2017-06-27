@@ -11,5 +11,6 @@ ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}${LD_LIBRARY_PATH:+:}/usr/lib64/mpich/lib/
 ENV MPI_INCLUDE=/usr/include/mpich-x86_64
 ENV MPI_LIB=/usr/lib64/mpich/lib
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
+ENV MPICH=true
 WORKDIR /home/flecsi
 RUN pip install --user codecov coverxygen
