@@ -6,10 +6,8 @@ RUN chmod +x /usr/bin/doxy-coverage
 RUN groupadd -r flecsi
 RUN useradd -r -m -g flecsi flecsi
 USER flecsi
-ENV PATH=/usr/lib64/ccache:${PATH}${PATH:+:}/usr/lib64/openmpi/bin/
-ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}${LD_LIBRARY_PATH:+:}/usr/lib64/openmpi/lib/
-#ENV MPI_INCLUDE=/usr/include/openmpi-x86_64
-#ENV MPI_LIB=/usr/lib64/openmpi/lib
+ENV PATH=/usr/lib64/ccache:/usr/lib64/openmpi/bin/${PATH:+:}${PATH}
+ENV LD_LIBRARY_PATH=/usr/lib64/openmpi/lib/${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
 ENV OPENMPI=true
 WORKDIR /home/flecsi
