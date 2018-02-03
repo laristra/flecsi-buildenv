@@ -12,15 +12,11 @@ env:
     - DISTRO=fedora_mpich DOCKERHUB=true
     - DISTRO=ubuntu_mpich DOCKERHUB=true
 
-before_script:
-  - pip install --user docker-squash
-
 script:
   - mkdir ${HOME}/docker
   - cp -v ${DISTRO} ${HOME}/docker/Dockerfile
   - if [[ ${TRAVIS_BRANCH} != master ]]; then TAG="${TAG}_${TRAVIS_BRANCH}"; fi
   - docker build -t ${TRAVIS_REPO_SLUG}:${DISTRO}${TAG} ${HOME}/docker/
-  - docker-squash -f ${DISTRO%_mpich}:latest ${TRAVIS_REPO_SLUG}:${DISTRO}${TAG}
 
 after_success:
   - shopt -s extglob && [[ ${TRAVIS_BRANCH} = @(master|refactor) ]] && DEPLOY=yes
