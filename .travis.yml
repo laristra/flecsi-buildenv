@@ -7,10 +7,10 @@ services:
 
 env:
   matrix:
-    - DISTRO=fedora DOCKERHUB=true
+#    - DISTRO=fedora DOCKERHUB=true
     - DISTRO=ubuntu DOCKERHUB=true
-    - DISTRO=fedora_mpich DOCKERHUB=true
-    - DISTRO=ubuntu_mpich DOCKERHUB=true
+#    - DISTRO=fedora_mpich DOCKERHUB=true
+#    - DISTRO=ubuntu_mpich DOCKERHUB=true
 
 script:
   - mkdir ${HOME}/docker
@@ -19,7 +19,7 @@ script:
   - docker build -t ${TRAVIS_REPO_SLUG}:${DISTRO}${TAG} ${HOME}/docker/
 
 after_success:
-  - shopt -s extglob && [[ ${TRAVIS_BRANCH} = @(master|refactor) ]] && DEPLOY=yes
+  - shopt -s extglob && [[ ${TRAVIS_BRANCH} = @(master|refactor|charliecloud) ]] && DEPLOY=yes
   - if [[ ${DOCKERHUB} = true && ${DOCKER_USERNAME} && ${DOCKER_PASSWORD} && ${TRAVIS_PULL_REQUEST} == false && ${DEPLOY} ]]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
       docker push "${TRAVIS_REPO_SLUG}:${DISTRO}${TAG}";
