@@ -45,4 +45,3 @@ ENV PATH=/usr/lib/ccache:${PATH}
 ENV OPENMPI=true
 WORKDIR /home/flecsi
 RUN pip install --user codecov coverxygen
-

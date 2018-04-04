@@ -7,10 +7,10 @@ services:
 
 env:
   matrix:
-#    - DISTRO=fedora DOCKERHUB=true
+    - DISTRO=fedora DOCKERHUB=true
     - DISTRO=ubuntu DOCKERHUB=true
-#    - DISTRO=fedora_mpich DOCKERHUB=true
-#    - DISTRO=ubuntu_mpich DOCKERHUB=true
+    - DISTRO=fedora_mpich DOCKERHUB=true
+    - DISTRO=ubuntu_mpich DOCKERHUB=true
 
 script:
   - mkdir ${HOME}/docker
