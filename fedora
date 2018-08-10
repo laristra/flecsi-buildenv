@@ -4,8 +4,8 @@ RUN wget -O /usr/bin/doxy-coverage https://raw.githubusercontent.com/alobbs/doxy
 RUN chmod +x /usr/bin/doxy-coverage
 
 RUN groupadd -r flecsi
-RUN useradd -r -m -g flecsi -G sudo flecsi
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN useradd -r -m -g flecsi -G wheel flecsi
+RUN echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER flecsi
 ENV PATH=/usr/lib64/ccache:/usr/lib64/openmpi/bin/${PATH:+:}${PATH}
 ENV LD_LIBRARY_PATH=/usr/lib64/openmpi/lib/${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}
