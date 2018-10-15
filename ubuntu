@@ -6,13 +6,6 @@ RUN apt-get -qq install -y sudo make cmake automake autoconf libtool cmake-data 
 RUN wget -O /usr/bin/doxy-coverage https://raw.githubusercontent.com/alobbs/doxy-coverage/master/doxy-coverage.py
 RUN chmod +x /usr/bin/doxy-coverage
 
-RUN apt-get install -y openjdk-8-jdk unzip
-RUN wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-2.8.zip https://sonarqube.com/static/cpp/build-wrapper-linux-x86.zip
-RUN unzip sonar-scanner-2.8.zip -d /sonarqube/
-RUN unzip build-wrapper-linux-x86.zip -d /sonarqube/
-ENV PATH=${PATH}${PATH:+:}/sonarqube/build-wrapper-linux-x86:/sonarqube/sonar-scanner-2.8/bin
-RUN sonar-scanner -h
-
 RUN groupadd -r flecsi
 RUN useradd -r -m -g flecsi -G sudo flecsi
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
