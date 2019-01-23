@@ -11,7 +11,7 @@ RUN useradd -r -m -g flecsi -G sudo flecsi
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER flecsi
-ENV PATH=/usr/lib/ccache:${PATH}
+ENV PATH=$HOME/.local/bin:/usr/lib/ccache:${PATH}
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
 ENV OPENMPI=true
 WORKDIR /home/flecsi
