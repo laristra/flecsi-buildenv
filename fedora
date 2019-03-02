@@ -7,7 +7,7 @@ RUN groupadd -r flecsi
 RUN useradd -r -m -g flecsi -G wheel flecsi
 RUN echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER flecsi
-ENV PATH=$HOME/.local/bin:/usr/lib64/ccache:/usr/lib64/openmpi/bin/${PATH:+:}${PATH}
+ENV PATH=/home/flecsi/.local/bin:/usr/lib64/ccache:/usr/lib64/openmpi/bin/${PATH:+:}${PATH}
 ENV LD_LIBRARY_PATH=/usr/lib64/openmpi/lib/${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
 ENV OPENMPI=true
