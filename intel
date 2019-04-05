@@ -11,16 +11,16 @@ RUN useradd -r -m -g flecsi -G sudo flecsi
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER flecsi
+WORKDIR /home/flecsi
 
-COPY install.sh .
-COPY silent.cfg .
-COPY USE_SERVER.lic /opt/intel/licenses/
+COPY ./scripts/install.sh .
+COPY ./scripts/silent.cfg .
+COPY ./scripts/USE_SERVER.lic /opt/intel/licenses/
 RUN ./install.sh
 
 ENV PATH=$HOME/.local/bin:/usr/lib/ccache:${PATH}
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
 ENV OPENMPI=true
-WORKDIR /home/flecsi
 RUN pip install --user codecov coverxygen gcovr Sphinx recommonmark sphinx_rtd_theme
 
 ENV http_proxy http://proxyout.lanl.gov:8080
@@ -28,10 +28,10 @@ ENV https_proxy http://proxyout.lanl.gov:8080
 ENV no_proxy "localhost,127.0.0.1,lanl.gov,*.lanl.gov"
 ENV GIT_SSL_NO_VERIFY 1
 
-COPY build_openmpi.sh .
+COPY ./scripts/build_openmpi.sh .
 RUN ./build_openmpi.sh
 
-COPY entrypoint.sh .
+COPY ./scripts/entrypoint.sh .
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["bash"]
 
