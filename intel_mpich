@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -q update -y
-RUN apt-get -qq install -y sudo make cmake ca-certificates patch iputils-ping cpio automake autoconf libtool cmake-data git vim gcc g++ gfortran flex doxygen graphviz pandoc python2.7 libopenmpi-dev libhdf5-openmpi-dev libcereal-dev liblapacke-dev libexodusii-dev libscotch-dev libmetis-dev python-pip texlive-font-utils clang clang-format llvm ccache texlive-latex-base texlive-fonts-recommended texlive-latex-recommended gdb wget curl lcov libboost-all-dev libclang-dev llvm-dev
+RUN apt-get -qq install -y sudo make cmake ca-certificates patch iputils-ping cpio automake autoconf libtool cmake-data git vim gcc g++ gfortran flex doxygen graphviz pandoc python2.7 libmpich-dev libhdf5-mpich-dev libcereal-dev liblapacke-dev libexodusii-dev libscotch-dev libmetis-dev python-pip texlive-font-utils clang clang-format llvm ccache texlive-latex-base texlive-fonts-recommended texlive-latex-recommended gdb wget curl lcov libboost-all-dev libclang-dev llvm-dev
 RUN wget -O /usr/bin/doxy-coverage https://raw.githubusercontent.com/alobbs/doxy-coverage/master/doxy-coverage.py
 RUN chmod +x /usr/bin/doxy-coverage
 
