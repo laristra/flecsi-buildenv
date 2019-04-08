@@ -13,9 +13,9 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER flecsi
 WORKDIR /home/flecsi
 
-COPY scripts ./scripts
+COPY scripts/ scripts/
 COPY scripts/USE_SERVER.lic /opt/intel/licenses/
-RUN ./scripts/install.sh
+RUN scripts/install.sh
 
 ENV PATH=/home/flecsi/.local/bin:/usr/lib/ccache:${PATH}
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
@@ -27,8 +27,8 @@ ENV https_proxy http://proxyout.lanl.gov:8080
 ENV no_proxy "localhost,127.0.0.1,lanl.gov,*.lanl.gov"
 ENV GIT_SSL_NO_VERIFY 1
 
-#RUN ./scripts/build_openmpi.sh
+#RUN scripts/build_openmpi.sh
 
-ENTRYPOINT ["./scripts/entrypoint.sh"]
+ENTRYPOINT ["scripts/entrypoint.sh"]
 CMD ["bash"]
 
