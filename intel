@@ -11,7 +11,7 @@ RUN useradd -r -m -g flecsi -G sudo flecsi
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 ADD scripts /home/flecsi/scripts
-COPY scripts/USE_SERVER.lic /opt/intel/licenses/
+RUN cp /home/flecsi/scripts/USE_SERVER.lic /opt/intel/licenses/
 
 USER root
 RUN chown -R flecsi:flecsi /home/flecsi/scripts
