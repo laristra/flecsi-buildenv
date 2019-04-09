@@ -17,6 +17,7 @@ env:
 script:
   - mkdir ${HOME}/docker
   - cp -v ${DISTRO} ${HOME}/docker/Dockerfile
+  - cp -r ${HOME}/scripts ${HOME}/docker/scripts
   - if [[ ${TRAVIS_BRANCH} != master ]]; then TAG="${TAG}_${TRAVIS_BRANCH//[^a-zA-Z0-9]/_}"; fi
   - docker build -t ${TRAVIS_REPO_SLUG}:${DISTRO}${TAG} ${HOME}/docker/
 
