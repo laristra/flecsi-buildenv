@@ -21,7 +21,7 @@ USER flecsi
 WORKDIR /home/flecsi
 
 RUN git clone https://github.com/spack/spack.git
-ENV export SPACK_ROOT=/home/flecsi/spack
+ENV SPACK_ROOT=/home/flecsi/spack
 RUN . $SPACK_ROOT/share/spack/setup-env.sh
 
 #RUN ./install.sh
