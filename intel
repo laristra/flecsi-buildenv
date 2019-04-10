@@ -18,9 +18,14 @@ USER root
 RUN chown -R flecsi:flecsi /home/flecsi/scripts
 USER flecsi
 
-WORKDIR /home/flecsi/scripts
+WORKDIR /home/flecsi
 
-RUN ./install.sh
+RUN git clone https://github.com/spack/spack.git
+ENV export SPACK_ROOT=/home/flecsi/spack
+RUN . $SPACK_ROOT/share/spack/setup-env.sh
+
+#RUN ./install.sh
+RUN spack install intel
 
 ENV http_proxy http://proxyout.lanl.gov:8080
 ENV https_proxy http://proxyout.lanl.gov:8080
