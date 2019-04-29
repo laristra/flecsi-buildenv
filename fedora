@@ -1,5 +1,5 @@
 FROM fedora:latest
-RUN dnf install -y sudo make cmake automake autoconf libtool git vim-minimal gcc-c++ gcc-gfortran flex patch doxygen graphviz pandoc python2 openmpi-devel redhat-rpm-config hdf5-openmpi-devel exodusii-devel cereal-devel lapack-devel scotch-devel metis-devel environment-modules python-pip clang llvm compiler-rt ccache texlive-epstopdf-bin ghostscript-core texlive-latex-bin-bin texlive-collection-fontsrecommended texlive-fancyhdr findutils texlive-booktabs gdb wget curl lcov boost-devel hwloc-devel hpx-openmpi-devel clang-devel llvm-devel
+RUN dnf install -y sudo make cmake automake autoconf libtool git vim-minimal gcc-c++ gcc-gfortran flex patch doxygen graphviz pandoc python2 openmpi-devel redhat-rpm-config hdf5-openmpi-devel exodusii-devel cereal-devel lapack-devel scotch-devel metis-devel environment-modules python-pip python3-pip clang llvm compiler-rt ccache texlive-epstopdf-bin ghostscript-core texlive-latex-bin-bin texlive-collection-fontsrecommended texlive-fancyhdr findutils texlive-booktabs gdb wget curl lcov boost-devel hwloc-devel hpx-openmpi-devel clang-devel llvm-devel
 RUN wget -O /usr/bin/doxy-coverage https://raw.githubusercontent.com/alobbs/doxy-coverage/master/doxy-coverage.py
 RUN chmod +x /usr/bin/doxy-coverage
 
@@ -12,4 +12,4 @@ ENV LD_LIBRARY_PATH=/usr/lib64/openmpi/lib/${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PAT
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
 ENV OPENMPI=true
 WORKDIR /home/flecsi
-RUN pip install --user codecov coverxygen gcovr Sphinx recommonmark sphinx_rtd_theme breathe
+RUN pip3 install --user codecov coverxygen gcovr Sphinx recommonmark sphinx_rtd_theme breathe
