@@ -15,4 +15,4 @@ ENV PATH=/home/flecsi/.local/bin:/usr/lib/ccache:${PATH}
 ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages${PYTHONPATH:+:}${PYTHONPATH}
 ENV OPENMPI=true
 WORKDIR /home/flecsi
-RUN pip install --user codecov coverxygen gcovr Sphinx recommonmark sphinx_rtd_theme breathe
+RUN pip3 install --user codecov coverxygen gcovr Sphinx recommonmark sphinx_rtd_theme breathe
